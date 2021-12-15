@@ -66,7 +66,8 @@ namespace Backend.Controllers
             httpContent = new StringContent(dataToSend, System.Text.Encoding.UTF8, "application/json");
             var response = await httpRequest.PutAsync(url + $"/{id}", httpContent);
             
-            return response.IsSuccessStatusCode ? Ok() : BadRequest();
+            return response.IsSuccessStatusCode ?
+            Ok(response.Content.ReadAsStringAsync()) : BadRequest();
         }
 
 

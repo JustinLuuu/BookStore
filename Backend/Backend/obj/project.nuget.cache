@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MTS+GtXxsqX0IdcmC71QQV+iz9kKVC3G/4aMeqzQJb05VIC6V2WTwGhxAV8R6Q3ARsa4FXBf/h0SS8fg0SOg2g==",
+  "dgSpecHash": "Za5g4SsPZLelUg52jessmPjY+CZTZc41NL+4p1jzSgjtrrPzk/P0iwqWqDVmg6n8RvxvazVIUH775P3JbNPJFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba_Tecnica_Infosyp\\backend\\backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

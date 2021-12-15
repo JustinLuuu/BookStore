@@ -213,11 +213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba_Tecnica_Infosyp\\Backend\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba_Tecnica_Infosyp\\Backend\\Backend\\Backend.csproj",
+      "projectPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba_Tecnica_Infosyp\\Backend\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\justi\\AppData\\Roaming\\NuGet\\NuGet.Config",
