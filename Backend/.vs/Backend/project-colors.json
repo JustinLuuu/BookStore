@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ae7f6226-72ca-4cc4-a7a8-3cb3633749b4": {
+      "ProjectGuid": "ae7f6226-72ca-4cc4-a7a8-3cb3633749b4",
+      "DisplayName": "Backend",
+      "ColorIndex": 0
+    },
+    "4061687d-ce34-4783-b51f-16caed438009": {
+      "ProjectGuid": "4061687d-ce34-4783-b51f-16caed438009",
+      "DisplayName": "CapaServicios",
+      "ColorIndex": 1
+    },
+    "bcfb723a-d6de-4857-8a55-6e1c3cd48189": {
+      "ProjectGuid": "bcfb723a-d6de-4857-8a55-6e1c3cd48189",
+      "DisplayName": "CapaServicio",
+      "ColorIndex": 2
+    },
+    "36e8748c-f318-4d7a-8f06-3838dadd1579": {
+      "ProjectGuid": "36e8748c-f318-4d7a-8f06-3838dadd1579",
+      "DisplayName": "CapaEntidad",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
