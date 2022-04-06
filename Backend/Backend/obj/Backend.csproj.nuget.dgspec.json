@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj": {}
+    "C:\\Users\\jminaya\\Desktop\\BookStore\\BookStore\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj": {
+    "C:\\Users\\jminaya\\Desktop\\BookStore\\BookStore\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\jminaya\\Desktop\\BookStore\\BookStore\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justi\\OneDrive\\Escritorio\\Prueba tecnica\\backend\\backend\\obj\\",
+        "projectPath": "C:\\Users\\jminaya\\Desktop\\BookStore\\BookStore\\Backend\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\jminaya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jminaya\\Desktop\\BookStore\\BookStore\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\justi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jminaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,7 +9,7 @@ export const Header = () => {
                   to='/'
                    className='text-white'
                   >
-                    <h1>Book Store</h1>
+                    <h1>BookStore</h1>
                 </Link>
                 
                 <Link 

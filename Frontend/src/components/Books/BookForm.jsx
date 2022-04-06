@@ -6,8 +6,8 @@ const initialStateForm = { id: 0, title: '', description: '', pageCount: 1, exce
 
 export const BookForm = () => {
 
-    const [formValues, setFormValues] = useState(initialStateForm);
     const { addBook, updateBook, booksState, url } = useContext(context);
+    const [formValues, setFormValues] = useState(initialStateForm);
     const history = useHistory();
     const params = useParams();
 
@@ -30,39 +30,39 @@ export const BookForm = () => {
 
         if (!params.id) {
             fetch(url, options)
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    else {
-                        alert(`the service response has a ${response.status} http status code!`);
-                        return null;
-                    }
-                })
-                .then((newBook) => {
-                    if (newBook) {
-                        addBook(JSON.parse(newBook.result));
-                        alert('added succesfully');
-                    }
-                })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                else {
+                    alert(`the service response has a ${response.status} http status code!`);
+                    return null;
+                }
+            })
+            .then((newBook) => {
+                if (newBook) {
+                    addBook(JSON.parse(newBook.result));
+                    alert('added succesfully');
+                }
+            })
         }
         else {
             fetch(url + `/${formValues.id}`, options)
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    else {
-                        alert(`the service response has a ${response.status} http status code!`);
-                        return null;
-                    }
-                })
-                .then((updatedBook) => {
-                    if (updatedBook) {
-                        updateBook(JSON.parse(updatedBook.result));
-                        alert(`book ${formValues.title} updated succesfully`)
-                    }
-                })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                else {
+                    alert(`the service response has a ${response.status} http status code!`);
+                    return null;
+                }
+            })
+            .then((updatedBook) => {
+                if (updatedBook) {
+                    updateBook(JSON.parse(updatedBook.result));
+                    alert(`book ${formValues.title} updated succesfully`)
+                }
+            })
         }
         history.push("/");
     }
@@ -123,7 +123,7 @@ export const BookForm = () => {
             <h2 className='text-white'>{!params.id ? 'Add new book' : 'Update this book'}</h2>
 
             <form onSubmit={handleSubmit} className="w-25 pt-3">
-                <div className="">
+                <div>
                     <label>Title</label>
                     <input
                         type="text"

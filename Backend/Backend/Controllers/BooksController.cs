@@ -5,13 +5,14 @@ using System.Text.Json;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("api/Books")]
+    [Route("api/books")]
     public class BooksController : ControllerBase
     {
         private HttpClient httpRequest = new HttpClient();
         private HttpContent httpContent { get; set; }
         private const string url = "https://fakerestapi.azurewebsites.net/api/v1/Books";
        
+
         [HttpGet]
         public async Task<ActionResult<List<Book>>> Get()
         {
@@ -45,8 +46,8 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> Post(Book book)
         {
-            var dataToSend = JsonSerializer.Serialize(book);
-            httpContent = new StringContent(dataToSend, System.Text.Encoding.UTF8, "application/json");
+            var jsonToSend = JsonSerializer.Serialize(book);
+            httpContent = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
             var response = await httpRequest.PostAsync(url, httpContent);
 
             return response.IsSuccessStatusCode ? 
@@ -62,14 +63,13 @@ namespace Backend.Controllers
                 return BadRequest("The book's id is different from the id that was sent on url");
             }
 
-            var dataToSend = JsonSerializer.Serialize(book);
-            httpContent = new StringContent(dataToSend, System.Text.Encoding.UTF8, "application/json");
+            var jsonToSend = JsonSerializer.Serialize(book);
+            httpContent = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
             var response = await httpRequest.PutAsync(url + $"/{id}", httpContent);
             
             return response.IsSuccessStatusCode ?
             Ok(response.Content.ReadAsStringAsync()) : BadRequest();
         }
-
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)

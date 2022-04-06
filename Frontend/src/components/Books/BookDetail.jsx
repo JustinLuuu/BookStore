@@ -10,7 +10,7 @@ export const BookDetail = () => {
     const [message, setMessage] = useState('Finding book...');
     const history = useHistory();
     const params = useParams();
-
+    
     const { books } = booksState;
 
     useEffect(() => {
