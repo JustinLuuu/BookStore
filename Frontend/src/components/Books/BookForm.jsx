@@ -1,126 +1,69 @@
 import { useContext, useState, useEffect } from "react";
 import { useHistory, useParams, Link } from "react-router-dom";
+import { fetchAddNewBook, fetchUpdateBook } from "../../api/books";
 import { context } from "../context/Context";
 
-const initialStateForm = { id: 0, title: '', description: '', pageCount: 1, excerpt: '', publishDate: '' }
+const initialStateForm = { id: 0, title: '', description: '', pageCount: 1, excerpt: '', publishDate: '' };
 
 export const BookForm = () => {
-
-    const { addBook, updateBook, booksState, url } = useContext(context);
+    
+    const { addBook, updateBook, booksState } = useContext(context);
     const [formValues, setFormValues] = useState(initialStateForm);
     const history = useHistory();
     const params = useParams();
-
-    const { books } = booksState;
+    const {books: bookList} = booksState;
+    const idParams = params.id ? parseInt(params.id) : null;
 
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value });
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const options = {
-            method: !params.id ? 'POST' : 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formValues),
-        };
+        let bookReturned = null;
+        if (!idParams) {
+            bookReturned = await fetchAddNewBook(formValues);
+            addBook(bookReturned);
+        } else {
+            bookReturned = await fetchUpdateBook(formValues, formValues.id);
+            updateBook(bookReturned);
+        }
 
-        if (!params.id) {
-            fetch(url, options)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                else {
-                    alert(`the service response has a ${response.status} http status code!`);
-                    return null;
-                }
-            })
-            .then((newBook) => {
-                if (newBook) {
-                    addBook(JSON.parse(newBook.result));
-                    alert('added succesfully');
-                }
-            })
-        }
-        else {
-            fetch(url + `/${formValues.id}`, options)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                else {
-                    alert(`the service response has a ${response.status} http status code!`);
-                    return null;
-                }
-            })
-            .then((updatedBook) => {
-                if (updatedBook) {
-                    updateBook(JSON.parse(updatedBook.result));
-                    alert(`book ${formValues.title} updated succesfully`)
-                }
-            })
-        }
+        alert(`Book ${!idParams ? 'added' : 'updated'} successfully`);
         history.push("/");
     }
 
     useEffect(() => {
-        const id = params.id;
-
-        if (id) {
-            if (isNaN(parseInt(id))) {
-                history.push('/');
-                return;
-            }
-
-            if (books.length === 0) {
-                fetch(url + `/${params.id}`)
-                    .then((response) => {
-                        if (response.ok)
-                            return response.json();
-                        else
-                            alert(`the service response has a ${response.status} http status code!`);
-                        return null;
-                    })
-                    .then((data) => {
-                        if (data) {
-                            setFormValues(data);
-                        }
-                        else {
-                            alert('that book doesnt exist!')
-                            history.push('/');
-                        }
-                    })
-                    .catch((error) => {
-                        alert('there is an error', error);
-                        history.push("/");
-                    });
-            }
-            else {
-                const foundBook = books.find(x => x.id === parseInt(id));
-                if (foundBook) {
-                    setFormValues(foundBook);
-                }
-                else {
-                    alert('that book doesnt exist!');
-                    history.push("/");
-                }
-            }
+        if (isNaN(idParams)) {
+            history.push('/');
         }
-    }, []);
+    }, [idParams]);
 
     useEffect(() => {
-        if (!params.id) {
+        if (!idParams) {
             setFormValues(initialStateForm);
         }
-    }, [params.id])
+    }, [idParams])
+
+    useEffect(() => {
+        if (idParams) {
+            const foundBook = bookList.find(x => x.id === idParams);
+            if (foundBook) {
+                setFormValues(foundBook);
+            }
+            else {
+                alert('that book doesnt exist!');
+                history.push("/");
+            }
+        }
+    }, [idParams])
+
+
 
     return (
         <div className='d-flex flex-column align-items-center pt-4 text-white w-100'>
-            <h2 className='text-white'>{!params.id ? 'Add new book' : 'Update this book'}</h2>
+            <h2 className='text-white'>{!idParams ? 'Add new book' : 'Update this book'}</h2>
 
             <form onSubmit={handleSubmit} className="w-25 pt-3">
                 <div>
@@ -178,7 +121,7 @@ export const BookForm = () => {
                     <input
                         type="date"
                         name="publishDate"
-                        value={!params.id ? formValues.publishDate : formValues.publishDate.substring(0, 10)}
+                        value={!idParams ? formValues.publishDate : formValues.publishDate.substring(0, 10)}
                         onChange={handleChange}
                         className="form-control mt-3"
                         required
@@ -186,18 +129,15 @@ export const BookForm = () => {
                 </div>
 
                 <button type="submit" className="btn btn-success mt-4">
-                    {!params.id ? 'Add this Book' : 'Update this Book'}
+                    {!idParams ? 'Add this Book' : 'Update this Book'}
                 </button>
 
-                {
-                    params.id &&
-                    <Link
-                        to='/'
-                        className={'btn btn-danger text-white fw-bold d-block mb-4 w-50 mt-2'}
-                    >
-                        Cancelar
-                    </Link>
-                }
+                <Link
+                    to='/'
+                    className={'btn btn-danger text-white fw-bold d-block mb-4 w-50 mt-2'}
+                >
+                    Cancelar
+                </Link>
             </form>
         </div>
     )

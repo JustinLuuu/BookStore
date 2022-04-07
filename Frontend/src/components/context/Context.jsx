@@ -1,5 +1,5 @@
-import { nanoid } from "nanoid";
 import { createContext, useReducer } from "react";
+import { generateRandomNumber } from "../../helpers/genRandomNumber";
 import reducer from "./Reducer";
 
 const initialState = {
@@ -22,8 +22,7 @@ export const Context = ({ children }) => {
   const addBook = (book) => {
     dispatch({
       type: "ADD_BOOK",
-      payload: { ...book, id: nanoid()
-      },
+      payload: { ...book, id: generateRandomNumber() },
     });
   }
 
@@ -52,7 +51,6 @@ export const Context = ({ children }) => {
     <context.Provider
       value={{
         booksState: state,
-        url: 'https://localhost:44366/api/Books',
         loadBooks,
         addBook,
         updateBook,

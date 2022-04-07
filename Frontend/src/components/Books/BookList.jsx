@@ -1,16 +1,21 @@
 import React, { useContext, useEffect } from 'react'
-import { BookItem } from './BookItem';
+import {fetchAllBooks} from '../../api/books'
+import { Book } from './Book';
 import { context } from '../context/Context';
 
 export const BookList = () => {
-
-    const { loadBooks, booksState, url } = useContext(context);
+    const { loadBooks, booksState } = useContext(context);
     const {books} = booksState;
 
-    useEffect(() => {
-        books.length === 0 && LoadData();
-    }, []);
+    const loadAllBooks = async ()=> {
+        const booksFetched = await fetchAllBooks();
+        loadBooks(booksFetched);  
+    }
 
+    useEffect(()=> {
+        books.length === 0 && loadAllBooks();
+    }, []);
+    
     return (
         <>
             <h2 className='text-white'>Book List</h2>
@@ -22,7 +27,7 @@ export const BookList = () => {
                         {
                             books.map((book, idx) => (
                                 <li className='list-item list-unstyled m-4 w-100'>
-                                    <BookItem info={book} key={book.id + idx} />
+                                    <Book info={book} key={book.id + idx} />
                                 </li>
                             ))
                         }
@@ -30,7 +35,7 @@ export const BookList = () => {
                 )
                 :
                 (
-                <h3 className='text-white h1'>Loading books</h3>
+                    <h3 className='text-white h1'>Loading books</h3>
                 )
             }
         </>

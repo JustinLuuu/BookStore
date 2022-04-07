@@ -16,7 +16,7 @@ export const Header = () => {
                     to='/add'
                     className='btn btn-success h-100'
                 >
-                    Add a new book
+                    Add New Book
                 </Link>
             </nav>
         </header>

@@ -95,7 +95,6 @@ C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Ba
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Backend.deps.json
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Backend.runtimeconfig.json
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Backend.dll
-C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\ref\Backend.dll
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Backend.pdb
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -106,3 +105,4 @@ C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\st
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\scopedcss\bundle\Backend.styles.css
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\Backend.csproj.CopyComplete
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\Backend.genruntimeconfig.cache
+C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\ref\Backend.dll

@@ -49,9 +49,14 @@ namespace Backend.Controllers
             var jsonToSend = JsonSerializer.Serialize(book);
             httpContent = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
             var response = await httpRequest.PostAsync(url, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var returnedBook = JsonSerializer.Deserialize<Book>(content);
+                return Ok(returnedBook);
+            }
 
-            return response.IsSuccessStatusCode ? 
-            Ok(response.Content.ReadAsStringAsync()) : BadRequest();
+            return BadRequest();
         }
 
 
@@ -66,10 +71,17 @@ namespace Backend.Controllers
             var jsonToSend = JsonSerializer.Serialize(book);
             httpContent = new StringContent(jsonToSend, System.Text.Encoding.UTF8, "application/json");
             var response = await httpRequest.PutAsync(url + $"/{id}", httpContent);
-            
-            return response.IsSuccessStatusCode ?
-            Ok(response.Content.ReadAsStringAsync()) : BadRequest();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var returnedBook = JsonSerializer.Deserialize<Book>(content);
+                return Ok(returnedBook);
+            }
+
+            return BadRequest();
         }
+
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)

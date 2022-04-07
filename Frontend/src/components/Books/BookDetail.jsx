@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from "react-router-dom";
 import { context } from '../context/Context';
-import { BookItem } from './BookItem';
+import { Book } from './Book';
 
 export const BookDetail = () => {
 
@@ -10,7 +10,6 @@ export const BookDetail = () => {
     const [message, setMessage] = useState('Finding book...');
     const history = useHistory();
     const params = useParams();
-    
     const { books } = booksState;
 
     useEffect(() => {
@@ -68,7 +67,7 @@ export const BookDetail = () => {
             <h2 className='text-white'>{message}</h2>
 
             {
-                book && <BookItem info={book} />
+                book && <Book info={book} />
             }
         </>
     )

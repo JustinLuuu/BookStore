@@ -1,28 +1,20 @@
 import React, { useContext } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom';
+import { fetchDeleteBook } from '../../api/books';
 import { context } from '../context/Context';
 
-export const BookItem = ({ info }) => {
-
-    const { deleteBook, booksState, url } = useContext(context);
-    const history = useHistory();
-    const params = useParams();
-
+export const Book = ({ info }) => {
+    
+    const { deleteBook, booksState } = useContext(context);    
     const { showMoreInfo } = booksState;
 
-    const handleDelete = () => {
-        fetch(url + `/${info.id}`, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok){
-                    deleteBook(info.id);     
-                    alert('Book removed succesfully');
-                    params.id && history.push('/');
-                }               
-                else{
-                    alert(`the service response has a ${response.status} http status code!`);
-                }
-            })
-            .catch(err => alert('there is an error', err));
+    const handleDelete = async() => {
+        const idBook = info.id;
+        if (window.confirm(`¿sure you want to delete ${info.title.toUpperCase()} book?`)){
+           await fetchDeleteBook(idBook);
+           deleteBook(idBook);
+           alert('Book deleted successfully');
+        }
     }
 
     return (
@@ -65,11 +57,11 @@ export const BookItem = ({ info }) => {
 
             <div className='ps-5 mt-5'>
                 {
-                    !showMoreInfo && 
-                    <Link 
+                    !showMoreInfo &&
+                    <Link
                         to={`/bookDetail/${info.id}`}
                         className={'btn btn-success text-white fw-bold d-block mb-4'}
-                        >
+                    >
                         View details
                     </Link>
                 }
