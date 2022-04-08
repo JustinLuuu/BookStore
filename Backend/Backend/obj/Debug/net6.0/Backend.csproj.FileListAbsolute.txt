@@ -105,4 +105,4 @@ C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\st
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\scopedcss\bundle\Backend.styles.css
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\Backend.csproj.CopyComplete
 C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\obj\Debug\net6.0\Backend.genruntimeconfig.cache
-C:\Users\jminaya\Desktop\BookStore\BookStore\Backend\Backend\bin\Debug\net6.0\ref\Backend.dll
+C:\Users\jminaya\Desktop\BookStore\BookStore\backend\backend\obj\Debug\net6.0\refint\Backend.dll

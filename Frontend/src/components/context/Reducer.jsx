@@ -35,10 +35,10 @@ export default function reducer(state, action) {
         books: state.books.filter((book) => book.id !== action.payload),
       };
 
-    case 'SHOW_MORE_INFO_BOOK':
+    case 'SELECT_BOOK':
       return {
         ...state,
-        showMoreInfo: action.payload,
+        selectedBook: action.payload,
       };
 
     default:

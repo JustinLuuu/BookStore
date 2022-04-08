@@ -4,7 +4,7 @@ import reducer from "./Reducer";
 
 const initialState = {
   books: [],
-  showMoreInfo: false
+  selectedBook: null
 }
 
 export const context = createContext(initialState);
@@ -40,10 +40,10 @@ export const Context = ({ children }) => {
     });
   }
 
-  const ableShowmoreInfoBook = (status) => {
+  const selectBook = (book) => {
     dispatch({
-      type: "SHOW_MORE_INFO_BOOK",
-      payload: status,
+      type: "SELECT_BOOK",
+      payload: book,
     });
   }
 
@@ -55,7 +55,7 @@ export const Context = ({ children }) => {
         addBook,
         updateBook,
         deleteBook,
-        ableShowmoreInfoBook
+        selectBook
       }}
     >
       {children}

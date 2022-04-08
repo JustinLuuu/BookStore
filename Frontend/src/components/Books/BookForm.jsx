@@ -39,16 +39,10 @@ export const BookForm = () => {
             history.push('/');
         }
     }, [idParams]);
-
-    useEffect(() => {
-        if (!idParams) {
-            setFormValues(initialStateForm);
-        }
-    }, [idParams])
-
+    
     useEffect(() => {
         if (idParams) {
-            const foundBook = bookList.find(x => x.id === idParams);
+            const foundBook = bookList.find(b => b.id === idParams);
             if (foundBook) {
                 setFormValues(foundBook);
             }
@@ -57,13 +51,18 @@ export const BookForm = () => {
                 history.push("/");
             }
         }
-    }, [idParams])
+    }, [idParams]);
 
+    useEffect(() => {
+        if (!idParams) {
+            setFormValues(initialStateForm);
+        }
+    }, [idParams]);
 
-
+    
     return (
         <div className='d-flex flex-column align-items-center pt-4 text-white w-100'>
-            <h2 className='text-white'>{!idParams ? 'Add new book' : 'Update this book'}</h2>
+            <h2 className='text-white'>{!idParams ? 'Add New book' : 'Update This Book'}</h2>
 
             <form onSubmit={handleSubmit} className="w-25 pt-3">
                 <div>
@@ -128,13 +127,13 @@ export const BookForm = () => {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-success mt-4">
+                <button type="submit" className="btn btn-success mt-4 mb-2 w-100">
                     {!idParams ? 'Add this Book' : 'Update this Book'}
                 </button>
 
                 <Link
                     to='/'
-                    className={'btn btn-danger text-white fw-bold d-block mb-4 w-50 mt-2'}
+                    className={'btn btn-danger text-white fw-bold d-block w-100'}
                 >
                     Cancelar
                 </Link>
