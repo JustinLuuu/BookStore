@@ -47,16 +47,16 @@ export const Book = ({ infoBook }) => {
 
                     {
                         !selectedBook ?
-                            (
-                                <small>Click me for whole info</small>
-                            )
-                            :
-                            (
-                                <>
-                                    <h5 className='p-1 bg-dark'>Excerpt</h5>
-                                    <p>{infoBook.excerpt.substring(0, 325) + '.'}</p>
-                                </>
-                            )
+                        (
+                            <small>Click me for whole info</small>
+                        )
+                        :
+                        (
+                            <>
+                                <h5 className='p-1 bg-dark'>Excerpt</h5>
+                                <p>{infoBook.excerpt.substring(0, 325) + '.'}</p>
+                            </>
+                        )
                     }
                 </div>
 
