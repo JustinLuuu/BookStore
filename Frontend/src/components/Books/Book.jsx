@@ -31,7 +31,7 @@ export const Book = ({ infoBook }) => {
     }
 
     return (
-        <div className='d-flex w-50 text-white m-auto cursor' >
+        <div className='d-flex w-50 text-white m-auto' >
             <div
                 className='bg-primary px-4 pt-4 w-100'
                 style={{ cursor: !selectedBook ? 'pointer' : 'default' }}
